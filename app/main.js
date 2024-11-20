@@ -1,7 +1,7 @@
 const { Oso } = require("oso-cloud");
 const express = require("express");
 require("dotenv").config({
-  path: require("path").resolve(__dirname, "../.env.local"),
+  path: require("path").resolve(__dirname, "../.env"),
 });
 // load the data
 const contextFacts = require("./buildContextFacts");
