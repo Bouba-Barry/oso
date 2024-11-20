@@ -1,0 +1,29 @@
+[
+  {
+    "id": "dm0001",
+    "desc": "Consultation cardiologie",
+    "is_locked": true,
+    "is_public": true,
+    "medecin": "drlam",
+    "service": "Cardiologie",
+    "specialite": "CARDIOLOGIE"
+  },
+  {
+    "id": "dm0002",
+    "desc": "Opération appendicite",
+    "is_locked": true,
+    "is_public": true,
+    "medecin": "drmar",
+    "service": "Chirurgie",
+    "specialite": "CHIRURGIE"
+  },
+  {
+    "id": "dm0003",
+    "desc": "Suivi grossesse",
+    "is_locked": true,
+    "is_public": false,
+    "medecin": "drdub",
+    "service": "Maternité",
+    "specialite": "OBSTETRIQUE"
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "drdup",
+    "role": "directeur_hopital",
+    "affectation": ["Aile_Est", "Aile_Ouest"]
+  },
+  {
+    "id": "drfav",
+    "role": "chef_service",
+    "affectation": ["Aile_Est"],
+    "specialites": ["CARDIOLOGIE", "CHIRURGIE"]
+  },
+  {
+    "id": "drber",
+    "role": "chef_unite",
+    "affectation": ["Aile_Ouest"],
+    "specialites": ["OBSTETRIQUE", "CHIRURGIE"]
+  },
+  {
+    "id": "drmar",
+    "role": "medecin",
+    "affectation": ["Aile_Est"],
+    "specialites": "CHIRURGIE"
+  },
+  {
+    "id": "drdub",
+    "role": "medecin",
+    "affectation": ["Aile_Ouest"],
+    "specialites": "OBSTETRIQUE"
+  },
+  {
+    "id": "drlam",
+    "role": "medecin",
+    "affectation": ["Aile_Est"],
+    "specialites": "CARDIOLOGIE"
+  },
+  {
+    "id": "drgui",
+    "role": "medecin",
+    "affectation": ["Aile_Ouest"],
+    "specialites": "OBSTETRIQUE"
+  }
+]

@@ -1,0 +1,49 @@
+facts:
+  # Fact 1: Association des utilisateurs à leurs rôles dans une organisation
+  has_role(User:_, String:_, Organization:_):
+    query: |
+      SELECT u.id AS user_id, u.role AS role, o.id AS org_id
+      FROM Users u
+      JOIN Org o ON o.id IN (SELECT UNNEST(u.affectation))
+
+  # Fact 2: Relation entre les utilisateurs et les organisations auxquelles ils sont affectés
+  has_relation(User:_, String:affectation, Organization:_):
+    query: |
+      SELECT u.id AS user_id, 'affectation' AS relation, o.id AS org_id
+      FROM Users u
+      JOIN Org o ON o.id IN (SELECT UNNEST(u.affectation))
+
+  # Fact 3: Relation entre les organisations et leurs services
+  has_relation(Organization:_, String:service, Service:_):
+    query: |
+      SELECT o.id AS org_id, 'service' AS relation, s.id AS service_id
+      FROM Org o
+      JOIN UNNEST(o.services) s(id)
+
+  # Fact 4: Propriétés publiques ou verrouillées des DMs
+  is_public(DM:_, Boolean:_):
+    query: |
+      SELECT d.id AS dm_id, d.is_public
+      FROM DM d
+  is_locked(DM:_, Boolean:_):
+    query: |
+      SELECT d.id AS dm_id, d.is_locked
+      FROM DM d
+
+  # Fact 5: Relation entre un utilisateur (médecin) et un DM
+  has_relation(User:_, String:medecin, DM:_):
+    query: |
+      SELECT d.medecin AS user_id, 'medecin' AS relation, d.id AS dm_id
+      FROM DM d
+
+  # Fact 6: Relation entre un service et un DM
+  has_relation(Service:_, String:dm, DM:_):
+    query: |
+      SELECT d.service AS service_id, 'dm' AS relation, d.id AS dm_id
+      FROM DM d
+
+sql_types:
+  User: UUID
+  Organization: UUID
+  Service: VARCHAR
+  DM: UUID

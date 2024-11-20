@@ -1,0 +1,4 @@
+[
+  { "id": "Aile_Est", "services": ["Cardiologie", "Chirurgie"] },
+  { "id": "Aile_Ouest", "services": ["Maternité"] }
+]
