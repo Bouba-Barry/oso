@@ -1,7 +1,7 @@
 const { Oso } = require("oso-cloud");
 const express = require("express");
 require("dotenv").config({
-  path: require("path").resolve(__dirname, "../.env"),
+  path: require("path").resolve(__dirname, "../.env.local"),
 });
 // load the data
 const contextFacts = require("./buildContextFacts");
@@ -28,9 +28,13 @@ async function start() {
   if (!process.env.OSO_CLOUD_API_KEY) {
     throw "Missing OSO API key from environment";
   }
+  if (!process.env.OSO_URL) {
+    throw "Missing OSO URL from environment";
+  }
 
   const apiKey = process.env.OSO_CLOUD_API_KEY;
-  const oso = new Oso("https://cloud.osohq.com", apiKey);
+  const url = process.env.OSO_URL;
+  const oso = new Oso(url, apiKey);
 
   // send data to oso using insert this will load all our data in once
   /**async function sendDataToOso() {

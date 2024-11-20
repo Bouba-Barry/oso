@@ -6,14 +6,14 @@ facts:
       FROM Users u
       JOIN Org o ON o.id IN (SELECT UNNEST(u.affectation))
 
-  # Fact 2: Relation entre les utilisateurs et les organisations auxquelles ils sont affectés
+  # Fact 2: Relation entre users et organisations
   has_relation(User:_, String:affectation, Organization:_):
     query: |
       SELECT u.id AS user_id, 'affectation' AS relation, o.id AS org_id
       FROM Users u
       JOIN Org o ON o.id IN (SELECT UNNEST(u.affectation))
 
-  # Fact 3: Relation entre les organisations et leurs services
+  # Fact 3: Relation entre une organisation et ses services
   has_relation(Organization:_, String:service, Service:_):
     query: |
       SELECT o.id AS org_id, 'service' AS relation, s.id AS service_id
@@ -42,8 +42,15 @@ facts:
       SELECT d.service AS service_id, 'dm' AS relation, d.id AS dm_id
       FROM DM d
 
+  # Fact 7: Relation entre une spécialité et un DM
+  has_relation(Specialite:_, String:dm, DM:_):
+    query: |
+      SELECT d.specialite AS specialite_id, 'dm' AS relation, d.id AS dm_id
+      FROM DM d
+
 sql_types:
   User: UUID
   Organization: UUID
   Service: VARCHAR
   DM: UUID
+  Specialite: VARCHAR

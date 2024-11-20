@@ -22,7 +22,7 @@ async function start() {
     })
   );
 
-  // remember to update this before running the server!
+  // remember to update this before running the server! !
   console.log("oso api key : " + process.env.OSO_CLOUD_API_KEY);
   if (!process.env.OSO_CLOUD_API_KEY) {
     throw "Missing OSO API key from environment";
