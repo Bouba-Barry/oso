@@ -47,13 +47,6 @@ Le projet contient un serveur (`main.js`) et des tests (`test.js`) pour valider 
    chmod +x scripts/run_main.sh
    chmod +x scripts/run_tests.sh
    ```
-
-3. **Installer les dépendances :**
-
-   ```bash
-   npm install
-   ```
-
 ---
 
 ## **Option 1 : Utiliser un serveur Oso en local**
